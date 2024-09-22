@@ -1,0 +1,110 @@
+version: 2
+sources:
+- name: dvd_rental
+  database: dvdrental
+  schema: public
+  tables:
+  - name: customer
+    description: This table has basic information about customers who rents movies.
+    columns:
+      - name: customer_id
+        description: This is a unique identifier for a customer
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        description: This is the customer's first name.
+      - name: last_name
+        description: This is the customer's last name.
+      - name: email
+        description: This is the customer's email address.
+      - name: active
+        description: This shows status of the customer.  
+  - name: city
+    description: This table has basic information about customers who rents movies.
+    columns:
+      - name: city_id
+        description: This is a unique identifier for a customer
+      - name: city
+        description: This is the city where customers live.
+  - name: address
+    description: This table has basic information about the addresses of the customers who rents movies.
+    columns:
+      - name: phone
+        description: This is phone number of the customers 
+      - name: address
+        description: This is the first line of address of the customers    
+      - name: city_id
+        description: This is code of the city of the address of customers 
+      - name: address_2
+        description: This is the second line of address of the customers
+      - name: district 
+        description: This is the district of the address of the customers 
+      - name: address_id
+        description: This is the unique identifier for the addresses of the customers  
+      - name: postal_code
+        description: This is the post code of addresses of the customers    
+  - name: country
+    description: This table holds the information of the countries where customers reside.
+    columns:
+      - name: country
+        description: This is the country of residence of customers
+      - name: country_id
+        description: This is the unique identifier for the country of residence of customers
+  - name: payment
+    description: This table has basic information about the amount customers paid for movies rented.
+    columns:
+      - name: customer_id
+        description: This is a unique identifier for a customer
+      - name: amount
+        description: This is a price customers paid 
+  - name: rental
+    description: This table holds information on the details of the movies rented.
+    columns:
+      - name: customer_id
+        description: This is a unique identifier for a customer.
+        tests:
+          - unique
+          - not_null
+      - name: inventory_id
+        description: This is the unique id for each rental record. 
+      - name: rental_date
+        description: This shows the date each rental was made.
+      - name: rental_id
+        description: This represents the unique id for every rental.
+      - name: return_date
+        description: This shows the date every movie was returned. 
+      - name: staff_id
+        description: This shows the unique Identifier of the staff that rented movie out.
+  - name: film
+    description: This table has basic information about customers who rents movies.
+    columns:
+      - name: film_id
+        description: This is a unique identifier for each film.
+      - name: rental_duration
+        description: This shows how long a customer kept a movie before returning.
+  - name: inventory
+    description: This table has basic information about customers who rents movies.
+    columns:
+      - name: film_id
+        description: This is a unique identifier for each film.
+      - name: inventory_id
+        description: This is the unique id for each rental record.
+      - name: store_id
+        description: This is a unique identifier for each rental store. 
+  - name: category
+    description: This table has basic information on different categories of movies 
+    columns:
+      - name: category_id
+        description: This is a unique identifier for each film category
+      - name: name
+        description: This shows the name or title of every movie.
+  - name: film_category
+    description: This table has basic information about customers who rents movies.
+    columns:
+      - name: category_id
+        description: This is a unique identifier for every category of movies
+      - name: film_id
+        description: This is a unique identifier for each film.
+       
+        
